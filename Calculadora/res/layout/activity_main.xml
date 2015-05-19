@@ -41,6 +41,11 @@
         	android:text="App. 02"/>
 	    			
 	</RadioGroup>
+	
+	<Spinner 
+	    android:id="@+id/comboApps"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"/>
     
     
     
