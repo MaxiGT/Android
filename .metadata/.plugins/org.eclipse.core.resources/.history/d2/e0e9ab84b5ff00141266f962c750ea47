@@ -38,10 +38,14 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				String seleccion = parent.getItemAtPosition(position).toString();
-				if (seleccion == "Calculadora") {
+				Integer i = parent.getCount();
+				switch (i) {
+				case 1:
 					Intent intentTabla = new Intent(MainActivity.this, CalculadoraActivity.class);
 					startActivity(intentTabla);
+					break;
+				default:
+					break;
 				}
 			}
 			
@@ -60,9 +64,9 @@ public class MainActivity extends Activity {
 				for (Integer i = 0; i < cantMaxima; i++) {
 					switch (posSeleccionada) {
 					case 1:
-						Intent intentcombo = new Intent(MainActivity.this, CalculadoraActivity.class);
+						Intent intent = new Intent(MainActivity.this, CalculadoraActivity.class);
 						comboBox.setSelection(0);
-						startActivity(intentcombo);
+						startActivity(intent);
 						break;
 					default:
 						break;
@@ -84,8 +88,8 @@ public class MainActivity extends Activity {
 				//rg.clearCheck();
 				switch (checkedId) {
 				case R.id.Calculadora:
-					Intent intentSpinner= new Intent(MainActivity.this, CalculadoraActivity.class);
-					startActivity(intentSpinner);
+					Intent intent = new Intent(MainActivity.this, CalculadoraActivity.class);
+					startActivity(intent);
 					break;
 				case R.id.App01:
 					break;
