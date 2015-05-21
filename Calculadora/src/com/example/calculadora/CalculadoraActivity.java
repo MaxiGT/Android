@@ -27,6 +27,7 @@ public class CalculadoraActivity extends Activity {
 	private float pos2;
 	private float pos3;
 	private float pos4;
+	private float acumuladorTotal;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -157,7 +158,7 @@ public class CalculadoraActivity extends Activity {
 		cmdMem1.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				guardarValorEnMemoria(pos1);
+				pos1 = guardarValorEnMemoria(pos1);
 				findViewById(R.id.pos1).setEnabled(true);
 			}
 		});
@@ -165,7 +166,7 @@ public class CalculadoraActivity extends Activity {
 		cmdMem2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				guardarValorEnMemoria(pos2);
+				pos2 = guardarValorEnMemoria(pos2);
 				findViewById(R.id.pos2).setEnabled(true);
 			}
 		});
@@ -173,7 +174,7 @@ public class CalculadoraActivity extends Activity {
 		cmdMem3.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				guardarValorEnMemoria(pos3);
+				pos3 = guardarValorEnMemoria(pos3);
 				findViewById(R.id.pos3).setEnabled(true);
 			}
 		});
@@ -181,7 +182,7 @@ public class CalculadoraActivity extends Activity {
 		cmdMem4.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				guardarValorEnMemoria(pos4);
+				pos4 = guardarValorEnMemoria(pos4);
 				findViewById(R.id.pos4).setEnabled(true);
 			}
 		});
@@ -189,28 +190,28 @@ public class CalculadoraActivity extends Activity {
 		cmdPos1.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				acumulador.setText(acumulador.getText().toString() + Float.toString(pos1));
+				mostrarMemoria(pos1);
 			}
 		});
 		
 		cmdPos2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				acumulador.setText(acumulador.getText().toString() + Float.toString(pos2));
+				mostrarMemoria(pos2);
 			}
 		});
 		
 		cmdPos3.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				acumulador.setText(acumulador.getText().toString() + Float.toString(pos3));
+				mostrarMemoria(pos3);
 			}
 		});
 		
 		cmdPos4.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				acumulador.setText(acumulador.getText().toString() + Float.toString(pos4));
+				mostrarMemoria(pos4);
 			}
 		});
 		
@@ -300,14 +301,17 @@ public class CalculadoraActivity extends Activity {
 	
 	private void setValorResultado(float res){
 		((TextView)findViewById(R.id.resultado)).setText(String.format("%f", res));
+		acumuladorTotal = res;
 	}
 	
-	private void guardarValorEnMemoria (float pos) {
+	private float guardarValorEnMemoria (float pos) {
+		TextView acumulador = (TextView)findViewById(R.id.numero);
 		pos = getNumeroIngresado();
+		acumulador.setText("");
+		return pos;
 	}
 	
 	private void botonPresionado (int numBoton, int flag) {
-		final TextView txtresultado = (TextView)findViewById(R.id.resultado);
 		final TextView acumulador = (TextView)findViewById(R.id.numero);
 		
 		if (ultimaOperacion == 0) {
@@ -319,10 +323,16 @@ public class CalculadoraActivity extends Activity {
 					//String a = txtresultado.getText().toString();
 					//ultimoValor = Float.valueOf(a);
 					//ultimoValor = Float.parseFloat(txtresultado.getText().toString());
-					ultimoValor = Float.parseFloat(String.format("%f", txtresultado.getText().toString()));
+					//ultimoValor = Float.parseFloat(String.format("%f", txtresultado.getText().toString()));
+					ultimoValor = acumuladorTotal;
 					ultimaOperacion = numBoton;
 					acumulador.setText("");
 				}
 		}
+	}
+	
+	private void mostrarMemoria (float pos) {
+		TextView acumulador = (TextView)findViewById(R.id.numero);
+		acumulador.setText(String.valueOf(pos));
 	}
 }

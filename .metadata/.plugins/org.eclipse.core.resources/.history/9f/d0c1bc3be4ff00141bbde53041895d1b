@@ -1,0 +1,21 @@
+package com.example.calculadora;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+
+public class RecyclerViewActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_recycler_view);
+		
+		final String[] datos = new String[] {"Item01", "Item02", "Item03", "Item04"};
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.list_content, datos);
+		
+	}
+
+}
