@@ -16,7 +16,7 @@
        	android:layout_height="40dp"
        	android:orientation="horizontal"
         >
-        
+
 	    <TextView 
 	        android:id="@+id/numero"
 	       	android:layout_width="match_parent"
@@ -106,7 +106,7 @@
     
     <LinearLayout 
     	android:layout_width="match_parent"
-    	android:layout_height="40dp"
+    	android:layout_height="15dp"
     	android:orientation="horizontal">
         
 	    <TextView
@@ -120,27 +120,22 @@
     
     <LinearLayout 
     	android:layout_width="match_parent"
-    	android:layout_height="60dp"
+    	android:layout_height="40dp"
     	android:orientation="horizontal">
     
-    <TextView 
-        android:id="@+id/resultado"
-       	android:layout_width="match_parent"
-       	android:layout_height="wrap_content"
-       	android:background="#bbbbbb"
-       	android:text="0.0"
-       	android:gravity="right"
-       	android:textSize="24sp"
-       	android:padding="5dp"
-       	android:layout_margin="4dp"
-        />
+	    <TextView 
+	        android:id="@+id/resultado"
+	       	android:layout_width="match_parent"
+	       	android:layout_height="wrap_content"
+	       	android:background="#bbbbbb"
+	       	android:text="0.0"
+	       	android:gravity="right"
+	       	android:textSize="20sp"
+	       	android:padding="5dp"
+	       	android:layout_margin="4dp"
+	        />
     
     </LinearLayout>
-    
-    <LinearLayout 
-        	android:layout_width="match_parent"
-	       	android:layout_height="115dp"
-	       	android:orientation="vertical">
         
 	    <LinearLayout 
 	        android:layout_width="match_parent"
@@ -171,7 +166,7 @@
 	        
 	     </LinearLayout>
 	    
-	        <LinearLayout 
+	     <LinearLayout 
 	        android:layout_width="match_parent"
 	       	android:layout_height="wrap_content"
 	       	android:orientation="horizontal"
@@ -200,7 +195,7 @@
 	        
 	     </LinearLayout>
 	     
-	            <LinearLayout 
+	     <LinearLayout 
 	        android:layout_width="match_parent"
 	       	android:layout_height="wrap_content"
 	       	android:orientation="horizontal"
@@ -228,8 +223,29 @@
 	            android:text="9"/>
 	        
 	    </LinearLayout>
+	    
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	       	android:layout_height="wrap_content"
+	       	android:orientation="horizontal"
+	        >
+
+            <Button 
+	        	android:id="@+id/n0"
+	            android:layout_width="0dp"
+	            android:layout_weight="1"
+	            android:layout_height="35dp"
+	            android:text="0"/>
+            
+            <Button 
+	        	android:id="@+id/pto"
+	            android:layout_width="0dp"
+	            android:layout_weight="1"
+	            android:layout_height="35dp"
+	            android:text="."
+	            android:textAlignment="center"/>
      
-	</LinearLayout>
+		</LinearLayout>
     
     <LinearLayout 
         android:layout_width="match_parent"
@@ -305,7 +321,7 @@
 	        <Button
 	            android:id="@+id/volver"
 	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
+	            android:layout_height="30dp"
 	            android:text="Volver"
 	            android:textSize="10sp"
 	            android:layout_centerInParent="true"

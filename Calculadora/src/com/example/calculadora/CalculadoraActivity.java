@@ -63,6 +63,8 @@ public class CalculadoraActivity extends Activity {
 		Button num7 = (Button)findViewById(R.id.n7);
 		Button num8 = (Button)findViewById(R.id.n8);
 		Button num9 = (Button)findViewById(R.id.n9);
+		Button num0 = (Button)findViewById(R.id.n0);
+		Button punto = (Button)findViewById(R.id.pto);
 		
 		cmdLimpiar.setOnClickListener( new OnClickListener() {
 			
@@ -158,32 +160,40 @@ public class CalculadoraActivity extends Activity {
 		cmdMem1.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pos1 = guardarValorEnMemoria(pos1);
-				findViewById(R.id.pos1).setEnabled(true);
+				if (getNumeroIngresado() != 0.0f) {
+					pos1 = guardarValorEnMemoria(pos1);
+					findViewById(R.id.pos1).setEnabled(true);
+				}
 			}
 		});
 		
 		cmdMem2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pos2 = guardarValorEnMemoria(pos2);
-				findViewById(R.id.pos2).setEnabled(true);
+				if (getNumeroIngresado() != 0.0f) {
+					pos2 = guardarValorEnMemoria(pos2);
+					findViewById(R.id.pos2).setEnabled(true);
+				}
 			}
 		});
 		
 		cmdMem3.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pos3 = guardarValorEnMemoria(pos3);
-				findViewById(R.id.pos3).setEnabled(true);
+				if (getNumeroIngresado() != 0.0f) {
+					pos3 = guardarValorEnMemoria(pos3);
+					findViewById(R.id.pos3).setEnabled(true);
+				}
 			}
 		});
 		
 		cmdMem4.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pos4 = guardarValorEnMemoria(pos4);
-				findViewById(R.id.pos4).setEnabled(true);
+				if (getNumeroIngresado() != 0.0f) {
+					pos4 = guardarValorEnMemoria(pos4);
+					findViewById(R.id.pos4).setEnabled(true);
+				}
 			}
 		});
 		
@@ -276,6 +286,20 @@ public class CalculadoraActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				acumulador.setText(acumulador.getText().toString() + "9");
+			}
+		});
+		
+		num0.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				acumulador.setText(acumulador.getText().toString() + "0");
+			}
+		});
+		
+		punto.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				acumulador.setText(acumulador.getText().toString() + ".");
 			}
 		});
 ////////////////////////////////BUTTON END////////////////////////////////	
