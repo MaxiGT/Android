@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -66,6 +67,9 @@ public class CalculadoraActivity extends Activity {
 		Button num0 = (Button)findViewById(R.id.n0);
 		Button cmdPunto = (Button)findViewById(R.id.pto);
 		Button cmdBorrar = (Button)findViewById(R.id.borrar);
+		//CONTEXT MENU = Menu de mas funciones
+		Button masFunciones = (Button)findViewById(R.id.masfunciones);
+		registerForContextMenu(masFunciones);
 		
 		cmdLimpiar.setOnClickListener( new OnClickListener() {
 			
@@ -128,7 +132,6 @@ public class CalculadoraActivity extends Activity {
 		});
 		
 		cmdIgual.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				float resultado = 0;
@@ -326,6 +329,27 @@ public class CalculadoraActivity extends Activity {
 		});
 	}
 	
+	@Override
+	public void onCreateContextMenu(android.view.ContextMenu menu, View v, android.view.ContextMenu.ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mas_funciones_menu, menu);
+	};
+	
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		switch(item.getItemId()) {
+			case R.id.potencia:
+				return true;
+			case R.id.raiz:
+				return true;
+			default:
+				return super.onContextItemSelected(item);
+		}
+	};
+	
+
 	private float getNumeroIngresado(){
 		TextView acumulador = (TextView)findViewById(R.id.numero);
 		String val = acumulador.getText().toString();
@@ -337,7 +361,10 @@ public class CalculadoraActivity extends Activity {
 	}
 	
 	private void setValorResultado(float res){
-		((TextView)findViewById(R.id.resultado)).setText(String.format("%f", res));
+		TextView resultado = (TextView)findViewById(R.id.resultado);
+		
+		resultado.setText(String.valueOf(res));
+		//((TextView)findViewById(R.id.resultado)).setText(String.format("%f", res));
 		acumuladorTotal = res;
 	}
 	
