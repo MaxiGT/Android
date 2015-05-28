@@ -64,7 +64,8 @@ public class CalculadoraActivity extends Activity {
 		Button num8 = (Button)findViewById(R.id.n8);
 		Button num9 = (Button)findViewById(R.id.n9);
 		Button num0 = (Button)findViewById(R.id.n0);
-		Button punto = (Button)findViewById(R.id.pto);
+		Button cmdPunto = (Button)findViewById(R.id.pto);
+		Button cmdBorrar = (Button)findViewById(R.id.borrar);
 		
 		cmdLimpiar.setOnClickListener( new OnClickListener() {
 			
@@ -83,6 +84,18 @@ public class CalculadoraActivity extends Activity {
 				findViewById(R.id.pos3).setEnabled(false);
 				findViewById(R.id.pos4).setEnabled(false);
 				flag = 0;
+			}
+		});
+		
+		
+		cmdBorrar.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (acumulador.getText().toString() != null) {
+					String nuevoValor = acumulador.getText().toString();
+					nuevoValor = nuevoValor.substring(0, nuevoValor.length() - 1);
+					acumulador.setText(nuevoValor);
+				}
 			}
 		});
 
@@ -296,7 +309,7 @@ public class CalculadoraActivity extends Activity {
 			}
 		});
 		
-		punto.setOnClickListener(new OnClickListener() {
+		cmdPunto.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				acumulador.setText(acumulador.getText().toString() + ".");
