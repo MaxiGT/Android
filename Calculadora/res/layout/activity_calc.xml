@@ -38,28 +38,28 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="35dp"
-            android:text="M1+"
+            android:text="@string/mem1"
             />
         <Button 
             android:id="@+id/mem2"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="35dp"
-            android:text="M2+"
+            android:text="@string/mem2"
             />
         <Button 
             android:id="@+id/mem3"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="35dp"
-            android:text="M3+"
+            android:text="@string/mem3"
             />
         <Button 
             android:id="@+id/mem4"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="35dp"
-            android:text="M4+"
+            android:text="@string/mem4"
             />
         
     </LinearLayout>
@@ -75,7 +75,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="35dp"
-            android:text="M1"
+            android:text="@string/pos1"
             android:enabled="false"
             />
         <Button 
@@ -83,7 +83,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="35dp"
-            android:text="M2"
+            android:text="@string/pos2"
             android:enabled="false"
             />
         <Button 
@@ -91,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="35dp"
-            android:text="M3"
+            android:text="@string/pos3"
             android:enabled="false"
             />
         <Button 
@@ -99,7 +99,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="35dp"
-            android:text="M4"
+            android:text="@string/pos4"
             android:enabled="false"/>
         
     </LinearLayout>
@@ -112,7 +112,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Resultado:"
+	        android:text="@string/resultado"
 	        android:layout_marginTop="10dp"
 	        />
 	    
@@ -128,7 +128,7 @@
 	       	android:layout_width="match_parent"
 	       	android:layout_height="wrap_content"
 	       	android:background="#bbbbbb"
-	       	android:text="0.0"
+	       	android:text="@string/valorResultado"
 	       	android:gravity="right"
 	       	android:textSize="20sp"
 	       	android:padding="5dp"
@@ -153,21 +153,21 @@
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="1"/>
+	            android:text="@string/num1"/>
 	        
 	        <Button 
 	        	android:id="@+id/n2"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="2"/>
+	            android:text="@string/num2"/>
 	        
 	        <Button 
 	        	android:id="@+id/n3"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="3"/>
+	            android:text="@string/num3"/>
 	        
 	     </LinearLayout>
 	    
@@ -182,21 +182,21 @@
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="4"/>
+	            android:text="@string/num4"/>
 	        
 	        <Button 
 	        	android:id="@+id/n5"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="5"/>
+	            android:text="@string/num5"/>
 	        
 	        <Button 
 	        	android:id="@+id/n6"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="6"/>
+	            android:text="@string/num6"/>
 	        
 	     </LinearLayout>
 	     
@@ -211,21 +211,21 @@
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="7"/>
+	            android:text="@string/num7"/>
 	        
 	        <Button 
 	        	android:id="@+id/n8"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="8"/>
+	            android:text="@string/num8"/>
 	        
 	        <Button 
 	        	android:id="@+id/n9"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="9"/>
+	            android:text="@string/num9"/>
 	        
 	    </LinearLayout>
 	    
@@ -240,14 +240,14 @@
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="0"/>
+	            android:text="@string/num0"/>
             
             <Button 
 	        	android:id="@+id/pto"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="."
+	            android:text="@string/punto"
 	            android:textAlignment="center"/>
 		</LinearLayout>
     </LinearLayout>
@@ -269,28 +269,28 @@
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="+"
+	            android:text="@string/suma"
 	            />
 	        <Button 
 	            android:id="@+id/menos"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="-"
+	            android:text="@string/resta"
 	            />
 	        <Button 
 	            android:id="@+id/por"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="X"
+	            android:text="@string/por"
 	            />
 	        <Button 
 	            android:id="@+id/dividido"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="/"
+	            android:text="@string/div"
 	            />
 	        
 	    </LinearLayout>
@@ -306,21 +306,21 @@
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="="
+	            android:text="@string/igual"
 	            />
 	        <Button 
 	            android:id="@+id/limpiar"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:layout_height="35dp"
-	            android:text="CE"
+	            android:text="@string/limpiar"
 	            />
 	        <Button 
 				android:id="@+id/borrar"
 				android:layout_width="0dp"
 				android:layout_weight="1"
 				android:layout_height="35dp"
-				android:text="Borrar"
+				android:text="@string/borrar"
 	          	/>
 	        
 	    </LinearLayout>
@@ -337,7 +337,7 @@
             android:id="@+id/masfunciones"
 			android:layout_width="wrap_content"
 			android:layout_height="35dp"
-			android:text="Otras Funciones ..."/>
+			android:text="@string/masfunciones"/>
         
     </RelativeLayout>
 	    
@@ -356,7 +356,7 @@
 	            android:id="@+id/volver"
 	            android:layout_width="wrap_content"
 	            android:layout_height="30dp"
-	            android:text="Volver"
+	            android:text="@string/volver"
 	            android:textSize="10sp"
 	            android:layout_centerInParent="true"
 	            />

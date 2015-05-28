@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:textSize="15sp"
-        android:text="Selecione la App. a ejecutar:"/>
+        android:text="@string/labelSeleccion"/>
     
 	<RadioGroup 
 	    android:id="@+id/rgApps"
@@ -26,19 +26,19 @@
 	        android:id="@+id/Calculadora"
 	        android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
-	        android:text="Calculadora"/>
+	        android:text="@string/Calc"/>
 	    
     	<RadioButton 
         	android:id="@+id/App01"
         	android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
-        	android:text="App. 01"/>
+        	android:text="@string/App01"/>
 	    
     	<RadioButton 
         	android:id="@+id/App02"
         	android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
-        	android:text="App. 02"/>
+        	android:text="@string/App02"/>
 	    			
 	</RadioGroup>
 	

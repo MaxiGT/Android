@@ -19,7 +19,7 @@ public class CalculadoraActivity extends Activity {
 	private int flag = 0;
 	private float ultimoValor = 0;
 	private int ultimaOperacion = 0;
-	//   0 - Nada
+	//   0 - nada
 	//   1 - suma
 	//   2 - resta
 	//   3 - mul
@@ -43,7 +43,6 @@ public class CalculadoraActivity extends Activity {
 		Button cmdIgual = (Button)findViewById(R.id.igual);
 		Button cmdLimpiar = (Button)findViewById(R.id.limpiar);
 		Button cmdVolver = (Button)findViewById(R.id.volver);
-		final TextView txtResultado = (TextView)findViewById(R.id.resultado);
 		//POS = Muestra Data
 		Button cmdPos1 = (Button)findViewById(R.id.pos1);
 		Button cmdPos2 = (Button)findViewById(R.id.pos2);
