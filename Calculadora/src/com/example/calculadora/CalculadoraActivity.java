@@ -17,18 +17,20 @@ import android.widget.TextView;
 public class CalculadoraActivity extends Activity {
 
 	private int flag = 0;
-	private float ultimoValor = 0;
+	private double ultimoValor = 0;
 	private int ultimaOperacion = 0;
-	//   0 - nada
-	//   1 - suma
-	//   2 - resta
-	//   3 - mul
-	//   4 - div
-	private float pos1;
-	private float pos2;
-	private float pos3;
-	private float pos4;
-	private float acumuladorTotal;
+	//  0 - nada
+	//  1 - suma
+	//  2 - resta
+	//  3 - mul
+	//  4 - div
+	//	5 - pot
+	//	6 - raiz cuadrada
+	private double pos1;
+	private double pos2;
+	private double pos3;
+	private double pos4;
+	private double acumuladorTotal;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +135,7 @@ public class CalculadoraActivity extends Activity {
 		cmdIgual.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				float resultado = 0;
+				double resultado = 0;
 				if(ultimaOperacion != 0){
 						switch(ultimaOperacion){
 						case 0:
@@ -164,6 +166,15 @@ public class CalculadoraActivity extends Activity {
 								startActivity(intent);
 							}
 							break;
+						case 5:
+							Double.valueOf(String.valueOf(ultimoValor));
+							resultado = Math.pow(ultimoValor, getNumeroIngresado());
+							setValorResultado(resultado);
+							break;
+						/*case 6:
+							resultado = Math.sqrt(ultimoValor);
+							setValorResultado(resultado);
+							break;*/
 						}
 					ultimaOperacion=0;
 					acumulador.setText("");
@@ -340,8 +351,10 @@ public class CalculadoraActivity extends Activity {
 	public boolean onContextItemSelected(MenuItem item) {
 		switch(item.getItemId()) {
 			case R.id.potencia:
+				botonPresionado(5, flag);
 				return true;
 			case R.id.raiz:
+				botonPresionado(6, flag);
 				return true;
 			default:
 				return super.onContextItemSelected(item);
@@ -349,53 +362,49 @@ public class CalculadoraActivity extends Activity {
 	};
 	
 
-	private float getNumeroIngresado(){
+	private double getNumeroIngresado(){
 		TextView acumulador = (TextView)findViewById(R.id.numero);
 		String val = acumulador.getText().toString();
 		if(val.length() == 0){
-			return 0.0f;
+			return 0.0d;
 		}else{
-			return Float.parseFloat(val);
+			return Double.valueOf(val);
 		}
 	}
 	
-	private void setValorResultado(float res){
+	private void setValorResultado(double res){
 		TextView resultado = (TextView)findViewById(R.id.resultado);
 		
 		resultado.setText(String.valueOf(res));
-		//((TextView)findViewById(R.id.resultado)).setText(String.format("%f", res));
 		acumuladorTotal = res;
 	}
 	
-	private float guardarValorEnMemoria (float pos) {
+	private double guardarValorEnMemoria (double pos12) {
 		TextView acumulador = (TextView)findViewById(R.id.numero);
-		pos = getNumeroIngresado();
+		pos12 = getNumeroIngresado();
 		acumulador.setText("");
-		return pos;
+		return pos12;
 	}
 	
 	private void botonPresionado (int numBoton, int flag) {
 		final TextView acumulador = (TextView)findViewById(R.id.numero);
-		
-		if (ultimaOperacion == 0) {
-				if (flag == 0) {
-					ultimoValor = getNumeroIngresado();
-					ultimaOperacion = numBoton;
-					acumulador.setText("");
-				} else {
-					//String a = txtresultado.getText().toString();
-					//ultimoValor = Float.valueOf(a);
-					//ultimoValor = Float.parseFloat(txtresultado.getText().toString());
-					//ultimoValor = Float.parseFloat(String.format("%f", txtresultado.getText().toString()));
-					ultimoValor = acumuladorTotal;
-					ultimaOperacion = numBoton;
-					acumulador.setText("");
-				}
+		if (flag == 0) {
+			ultimoValor = getNumeroIngresado();
+			ultimaOperacion = numBoton;
+			acumulador.setText("");
+		} else {
+			ultimoValor = acumuladorTotal;
+			ultimaOperacion = numBoton;
+			acumulador.setText("");
+		}
+		if (numBoton == 6) {
+			double resultado = Math.sqrt(ultimoValor);
+			setValorResultado(resultado);
 		}
 	}
 	
-	private void mostrarMemoria (float pos) {
+	private void mostrarMemoria (double pos12) {
 		TextView acumulador = (TextView)findViewById(R.id.numero);
-		acumulador.setText(String.valueOf(pos));
+		acumulador.setText(String.valueOf(pos12));
 	}
 }

@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
 		
 		Spinner spinner = (Spinner)findViewById(R.id.spinner);
 		
-		final Noticia[] datosLista = new Noticia[] {new Noticia("Titulo1", "subTitulo1", 1), new Noticia("Titulo2", "subTitulo2", 2), new Noticia("Titulo3", "subTitulo3", 3)};
+		/*final Noticia[] datosLista = new Noticia[] {new Noticia("Titulo1", "subTitulo1", 1), new Noticia("Titulo2", "subTitulo2", 2), new Noticia("Titulo3", "subTitulo3", 3)};
 		ArrayAdapter<Noticia> adapterLista = new ArrayAdapter<Noticia>(this,  R.layout.lista_layout, datosLista){
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
@@ -36,27 +36,29 @@ public class MainActivity extends Activity {
 					textsubTitulo.setText(datosLista[position].getsubTitulo());
 					Log.d("Clase3 - Ejercicio2", "Utilizando un Layout ya creado");
 				}
-				return super.getView(position, convertView, parent);
+				return convertView;
 			}
 		};
 		
-		/*String[] datos = new String[] {"Bs. As", "Mar del Plata", "La Boca", "La Plata"};
+		spinner.setAdapter(adapterLista);*/
+		
+		String[] datos = new String[] {"Bs. As", "Mar del Plata", "La Boca", "La Plata"};
 		ArrayAdapter<String> ciudades = new ArrayAdapter<String>(this, R.layout.spinner_cool, datos){		
-					public View getView (int position, View convertView, ViewGroup parent) {
-						if (convertView == null) {
-							convertView = getLayoutInflater().inflate(R.layout.spinner_cool, parent, false);
-							Log.d("Clase3", "Creando una vista nueva");
-						} else {
-						TextView text = (TextView)convertView;
-						text.setText(getItem(position));
-						Log.d("Clase3", "Reutilizando una vista ya creada");
-						}
-						return convertView;
+				public View getView (int position, View convertView, ViewGroup parent) {
+					if (convertView == null) {
+						convertView = getLayoutInflater().inflate(R.layout.spinner_cool, parent, false);
+						Log.d("Clase3", "Creando una vista nueva");
+					} else {
+					TextView text = (TextView)convertView;
+					text.setText(getItem(position));
+					Log.d("Clase3", "Reutilizando una vista ya creada");
 					}
+					return convertView;
+				}
 		};
 		spinner.setAdapter(ciudades);
 		
-		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		/*spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 				
