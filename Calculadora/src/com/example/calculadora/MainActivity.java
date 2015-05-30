@@ -44,7 +44,6 @@ public class MainActivity extends Activity {
 					startActivity(intentTabla);
 				}
 			}
-			
 		});
 		
 		
@@ -94,7 +93,10 @@ public class MainActivity extends Activity {
 				}
 			}
 		});
-		
-		
+	}
+	
+	@Override
+	public void onBackPressed() {
+		//super.onBackPressed();
 	}
 }
