@@ -1,0 +1,24 @@
+package com.example.projectofinal;
+
+import android.app.Activity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MisRestaurantesActivity extends Activity {
+	
+	public RestaurantDB dbHelper;
+	public static final String QUERY_ALL = "SELECT * FROM restaurant ORDER BY nombre ASC";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_mis_restaurantes);
+		
+		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		Cursor cursor = db.rawQuery(QUERY_ALL, String[] ());
+		
+	}
+}

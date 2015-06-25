@@ -1,0 +1,44 @@
+package com.example.projectofinal;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+
+public class AgregarActivity extends Activity {
+	
+	public RestaurantDB db;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_agregar);
+		
+		ArrayList<Long> ids = new ArrayList<Long>();
+		
+		EditText edtNombre = (EditText)findViewById(R.id.nombreAgregar);
+		EditText edtDireccion = (EditText)findViewById(R.id.direccionAgregar);
+		EditText edtTelefono = (EditText)findViewById(R.id.telefonoAgregar);
+		EditText edtDescripcion = (EditText)findViewById(R.id.descripcionAgregar);
+		RatingBar rtRate = (RatingBar)findViewById(R.id.rateAgregar);
+		ImageView img = (ImageView)findViewById(R.id.imageAgregar);
+		
+		Button btnGuardar = (Button)findViewById(R.id.btnGuardarAgregar);
+		
+		btnGuardar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+			}
+		});
+		
+	}
+}

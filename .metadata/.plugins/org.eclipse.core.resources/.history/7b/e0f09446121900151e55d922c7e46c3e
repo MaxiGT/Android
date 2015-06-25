@@ -1,0 +1,22 @@
+package com.example.projectofinal;
+
+import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MisRestaurantesActivity extends Activity {
+	
+	public RestaurantDB dbHelper;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_mis_restaurantes);
+		
+		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		
+		
+	}
+}

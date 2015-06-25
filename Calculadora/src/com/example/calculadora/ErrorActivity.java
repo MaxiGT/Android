@@ -30,11 +30,7 @@ public class ErrorActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-	}
-	
-	@Override
-	public void onBackPressed() {
-		//super.onBackPressed();
+		
 	}
 
 	@Override

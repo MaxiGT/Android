@@ -1,0 +1,14 @@
+package com.example.projectofinal;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class PersonasDB extends SQLiteOpenHelper{
+
+	public PersonasDB(Context context) {
+		super(context, "", null, 1);
+		// TODO Auto-generated constructor stub
+	}
+
+}

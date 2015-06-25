@@ -1,0 +1,60 @@
+package com.example.projectofinal;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.Toast;
+
+public class AgregarActivity extends Activity {
+	
+	public RestaurantDB dbHelper;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_agregar);
+		
+		ArrayList<Long> ids = new ArrayList<Long>();
+		
+		final EditText edtNombre = (EditText)findViewById(R.id.nombreAgregar);
+		final EditText edtDireccion = (EditText)findViewById(R.id.direccionAgregar);
+		final EditText edtTelefono = (EditText)findViewById(R.id.telefonoAgregar);
+		final EditText edtDescripcion = (EditText)findViewById(R.id.descripcionAgregar);
+		final RatingBar rtRate = (RatingBar)findViewById(R.id.rateAgregar);
+		final ImageView img = (ImageView)findViewById(R.id.imageAgregar);
+		
+		Button btnGuardar = (Button)findViewById(R.id.btnGuardarAgregar);
+		
+		btnGuardar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				SQLiteDatabase db = dbHelper.getWritableDatabase();
+				
+				if ((edtNombre.getText().toString() != null) && (edtDireccion.getText().toString() != null) && (edtDescripcion.getText().toString() != null) && (rtRate.getRating() != 0.0f)) {
+					ContentValues values = new ContentValues();
+					values.put("nombre", edtNombre.getText().toString());
+					
+					Bundle b = new Bundle();
+					try {
+						long id = db.insert(b.getString("TABLE"), null, values);
+					} catch (Exception e) {
+						Toast.makeText(getApplicationContext(), "Fallo al insertar", Toast.LENGTH_SHORT).show();
+					}
+				}
+				
+				
+			}
+		});
+		
+	}
+}
