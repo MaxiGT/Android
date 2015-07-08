@@ -1,0 +1,53 @@
+package com.example.projectofinal;
+
+import android.app.Activity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class MisRestaurantesActivity extends Activity {
+	
+	final RegistroDB[] datosLista = new RegistroDB();
+	public RestaurantDB dbHelper;
+	public static final String QUERY_ALL = "SELECT * FROM restaurant ORDER BY nombre ASC";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_mis_restaurantes);
+		
+		ListView lstMisRestaurantes = (ListView)findViewById(R.id.listaTodos);
+		
+		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		Cursor cursor = db.rawQuery(QUERY_ALL, null);
+		cursor.moveToFirst();
+		
+		do {
+			
+		} while (!cursor.isAfterLast());
+		
+		ArrayAdapter<RegistroDB> adapaterLista = new ArrayAdapter<RegistroDB>(getApplicationContext(), R.layout.lista_custom, datosLista) {
+			public View getView(int position, View convertView, ViewGroup parent) {
+				if (convertView == null) {
+					convertView = getLayoutInflater().inflate(R.layout.lista_custom, parent, false);
+				} else {
+					TextView txtNombre = (TextView)convertView;
+					txtNombre.setText(datosLista[position].getNombre());
+					TextView txtDireccion = (TextView)convertView;
+					txtDireccion.setText(datosLista[position].getDireccion()());
+				}
+				
+				return convertView;
+				
+			}
+		};
+		lstMisRestaurantes.setAdapter(adapaterLista);
+	}
+}

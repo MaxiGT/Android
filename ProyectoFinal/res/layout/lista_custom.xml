@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <TextView 
+        android:id="@+id/nombreLista"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="20sp"
+        android:hint="Nombre"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toStartOf="@+id/imageLista"
+        android:layout_toLeftOf="@+id/imageLista"
+         />
+    
+    <TextView 
+        android:id="@+id/direccionLista"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@+id/nombreLista"
+		android:layout_alignParentLeft="true"
+        android:layout_toStartOf="@+id/imageLista"
+        android:layout_toLeftOf="@+id/imageLista"
+        android:hint="Direccion" />
+    
+    <TextView 
+        android:id="@+id/telefonoLista"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@+id/direccionLista"
+		android:layout_alignParentLeft="true"
+        android:layout_toStartOf="@+id/imageLista"
+        android:layout_toLeftOf="@+id/imageLista"
+        android:hint="Telefono" />
+    
+    <TextView 
+        android:id="@+id/distanciaLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/telefonoLista"
+        android:hint="Distancia"
+        android:layout_alignParentLeft="true"
+        android:layout_toStartOf="@+id/imageLista"
+        android:layout_toLeftOf="@+id/imageLista" />
+    
+    <ImageView
+        android:id="@+id/imageLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:minHeight="85dp"
+        android:minWidth="85dp" />
+    
+    <RatingBar 
+        android:id="@+id/rateLista"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:numStars="5"
+        android:layout_below="@+id/distanciaLista" />
+
+</RelativeLayout>

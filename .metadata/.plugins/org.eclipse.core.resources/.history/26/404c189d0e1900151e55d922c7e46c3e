@@ -1,0 +1,39 @@
+package com.example.projectofinal;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class RestaurantDB extends SQLiteOpenHelper{
+	
+	public static final String DB_NAME = "Restaurant.db3";
+	public static final Integer DB_VERSION = 1;
+	
+	public final static String DB_CREATION_QUERY = "CREATE TABLE restaurant " +
+	"(id INTEGER PRIMARY KEY AUTOINCREMENT, " + 
+	"nombre VARCHAR(16) NOT NULL, " +
+	"direccion VARCHAR(16) NOT NULL, " +
+	"observaciones VARCHAR(16) NOT NULL, " +
+	"foto VARCHAR(24), " +
+	"telefono VARCHAR(16), " +
+	"rate INTEGER NOT NULL)";
+	
+
+	public RestaurantDB(Context context) {
+		super(context, "", null, 1);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		// TODO Auto-generated method stub
+		db.execSQL(DB_CREATION_QUERY);
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// TODO Auto-generated method stub
+		
+	}
+}
